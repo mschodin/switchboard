@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { LeftSidebar } from '@/components/layout/left-sidebar'
 import { RightSidebar } from '@/components/layout/right-sidebar'
 import { MainHeader } from '@/components/layout/main-header'
@@ -16,10 +16,16 @@ export default function HomePage() {
   const [endpoints, setEndpoints] = useState<Endpoint[]>([])
   const [allEndpoints, setAllEndpoints] = useState<Endpoint[]>([])
   const [isLoading, setIsLoading] = useState(true)
+  const [isFiltering, setIsFiltering] = useState(false)
+  const isInitialLoad = useRef(true)
 
   useEffect(() => {
     const fetchEndpoints = async () => {
-      setIsLoading(true)
+      if (isInitialLoad.current) {
+        setIsLoading(true)
+      } else {
+        setIsFiltering(true)
+      }
       try {
         const data = await getEndpoints({
           tags: tags.length > 0 ? tags : undefined,
@@ -33,7 +39,12 @@ export default function HomePage() {
       } catch (error) {
         console.error('Failed to fetch endpoints:', error)
       } finally {
-        setIsLoading(false)
+        if (isInitialLoad.current) {
+          isInitialLoad.current = false
+          setIsLoading(false)
+        } else {
+          setIsFiltering(false)
+        }
       }
     }
 
@@ -54,7 +65,7 @@ export default function HomePage() {
               showing={endpoints.length}
               total={allEndpoints.length || endpoints.length}
             />
-            <EndpointGrid endpoints={endpoints} isLoading={isLoading} />
+            <EndpointGrid endpoints={endpoints} isLoading={isLoading} isFiltering={isFiltering} />
           </div>
         </div>
       </main>

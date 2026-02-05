@@ -5,12 +5,14 @@ import type { Endpoint } from '@/types/database'
 interface EndpointGridProps {
   endpoints: Endpoint[]
   isLoading?: boolean
+  isFiltering?: boolean
   onEndpointClick?: (endpoint: Endpoint) => void
 }
 
 export function EndpointGrid({
   endpoints,
   isLoading = false,
+  isFiltering = false,
   onEndpointClick,
 }: EndpointGridProps) {
   if (isLoading) {
@@ -37,7 +39,7 @@ export function EndpointGrid({
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 transition-opacity duration-200 ${isFiltering ? 'opacity-60' : 'opacity-100'}`}>
       {endpoints.map((endpoint) => (
         <EndpointCard
           key={endpoint.id}

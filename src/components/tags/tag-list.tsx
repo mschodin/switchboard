@@ -7,6 +7,19 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { cn } from '@/lib/utils'
 import { Check } from 'lucide-react'
 
+const TAG_EMOJIS: Record<string, string> = {
+  authentication: '🔐',
+  payments: '💳',
+  analytics: '📊',
+  storage: '💾',
+  communication: '💬',
+  'ai-ml': '🤖',
+  database: '🗄️',
+  devops: '⚙️',
+  security: '🛡️',
+  'maps-location': '📍',
+}
+
 export function TagList() {
   const { tags, isLoading } = useTags()
   const { tags: selectedTags, toggleTag } = useFilters()
@@ -35,10 +48,7 @@ export function TagList() {
             )}
             onClick={() => toggleTag(tag.slug)}
           >
-            <div
-              className="mr-2 h-3 w-3 rounded-full"
-              style={{ backgroundColor: tag.color }}
-            />
+            <span className="mr-2 text-sm">{TAG_EMOJIS[tag.slug] ?? '📦'}</span>
             <span className="flex-1 text-left">{tag.name}</span>
             {isSelected && <Check className="h-4 w-4" />}
           </Button>
