@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { Suspense, useEffect, useRef, useState } from 'react'
 import { LeftSidebar } from '@/components/layout/left-sidebar'
 import { RightSidebar } from '@/components/layout/right-sidebar'
 import { MainHeader } from '@/components/layout/main-header'
@@ -12,6 +12,14 @@ import { useFilters } from '@/hooks/use-filters'
 import type { Endpoint } from '@/types/database'
 
 export default function HomePage() {
+  return (
+    <Suspense>
+      <HomePageContent />
+    </Suspense>
+  )
+}
+
+function HomePageContent() {
   const { tags, search } = useFilters()
   const [endpoints, setEndpoints] = useState<Endpoint[]>([])
   const [allEndpoints, setAllEndpoints] = useState<Endpoint[]>([])
