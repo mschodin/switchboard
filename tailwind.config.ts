@@ -52,10 +52,11 @@ const config: Config = {
         },
         brand: {
           50: '#eef2ff',
-          100: '#e0e7ff',
-          500: '#6366f1',
-          600: '#4f46e5',
-          700: '#4338ca',
+          100: '#dbeafe',
+          200: '#bfdbfe',
+          500: '#5192F4',
+          600: '#2F33F5',
+          700: '#1e1fb3',
         },
         status: {
           active: '#22c55e',
@@ -72,8 +73,13 @@ const config: Config = {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
+      boxShadow: {
+        subtle: '0 1px 3px rgba(0, 0, 0, 0.06)',
+        card: '0 2px 8px rgba(0, 0, 0, 0.08)',
+        elevated: '0 8px 24px rgba(0, 0, 0, 0.12)',
+      },
       fontFamily: {
-        sans: ['var(--font-geist-sans)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-beVietnam)', 'system-ui', 'sans-serif'],
         mono: ['var(--font-geist-mono)', 'monospace'],
       },
       keyframes: {

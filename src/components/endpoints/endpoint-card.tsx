@@ -24,7 +24,7 @@ export function EndpointCard({ endpoint, onClick }: EndpointCardProps) {
 
   return (
     <Card
-      className="cursor-pointer transition-all duration-200 hover:shadow-lg hover:shadow-brand-500/10"
+      className="cursor-pointer hover:shadow-elevated hover:-translate-y-0.5"
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

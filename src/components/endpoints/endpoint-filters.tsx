@@ -35,7 +35,7 @@ export function EndpointFilters() {
           {tag.name}
           <button
             onClick={() => toggleTag(tag.slug)}
-            className="ml-1 hover:opacity-70 rounded-full p-0.5"
+            className="ml-1 hover:opacity-70 rounded-full p-0.5 transition-opacity duration-200"
           >
             <X className="h-3 w-3" />
           </button>

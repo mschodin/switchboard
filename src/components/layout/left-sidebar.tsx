@@ -18,14 +18,14 @@ export function LeftSidebar({ className }: LeftSidebarProps) {
   return (
     <aside
       className={cn(
-        'hidden md:flex md:w-sidebar-left md:flex-shrink-0 flex-col border-r bg-card',
+        'hidden md:flex md:w-sidebar-left md:flex-shrink-0 flex-col border-r border-black/[0.08] bg-white',
         className
       )}
     >
       <div className="flex-1 overflow-y-auto p-6">
         <div className="mb-8">
           <Link href="/" className="block">
-            <h1 className="text-2xl font-bold text-brand-500">Switchboard</h1>
+            <h1 className="text-2xl font-bold bg-gradient-to-r from-[#2F33F5] to-[#5192F4] bg-clip-text text-transparent">Switchboard</h1>
             <p className="text-sm text-muted-foreground mt-1">
               API Endpoint Registry
             </p>
@@ -33,14 +33,14 @@ export function LeftSidebar({ className }: LeftSidebarProps) {
         </div>
 
         <div className="mb-6">
-          <h2 className="text-sm font-medium mb-3 text-muted-foreground">
+          <h2 className="text-xs font-semibold uppercase tracking-wider mb-3 text-muted-foreground">
             Filter by Category
           </h2>
           <TagList />
         </div>
       </div>
 
-      <div className="p-6 border-t">
+      <div className="p-6 border-t border-black/[0.08]">
         {isAuthenticated ? (
           <Button asChild className="w-full">
             <Link href="/submit">

@@ -1,10 +1,15 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Be_Vietnam_Pro } from 'next/font/google'
 import './globals.css'
 import { AuthProvider } from '@/components/auth/auth-provider'
 import { Toaster } from '@/components/ui/toaster'
 
-const inter = Inter({ subsets: ['latin'] })
+const beVietnamPro = Be_Vietnam_Pro({
+  subsets: ['latin'],
+  weight: ['200', '300', '400', '500', '600', '900'],
+  variable: '--font-beVietnam',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: 'Switchboard - API Endpoint Registry',
@@ -18,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${beVietnamPro.variable} font-sans`}>
         <AuthProvider>
           {children}
           <Toaster />

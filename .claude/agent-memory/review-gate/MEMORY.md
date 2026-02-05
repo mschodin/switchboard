@@ -3,7 +3,8 @@
 ## Project Context
 - **Project**: Switchboard API Endpoint Registry
 - **Tech Stack**: Next.js 14, TypeScript, Supabase, shadcn/ui
-- **First Review**: 2026-02-04
+- **First Review**: 2026-02-04 (Initial Implementation - SWB-001 to SWB-015)
+- **Second Review**: 2026-02-05 (NICE.com Restyle - SWB-100 to SWB-111)
 - **Status**: Production-ready with conditions
 
 ## Key Patterns Learned
@@ -34,11 +35,18 @@
 4. **Database Schema Critical** - For Supabase apps, verify RLS policies match LLD exactly
 
 ### Switchboard-Specific Learnings
-- 15 user stories = 82 AC = 225 tests is excellent coverage ratio (2.7 tests/AC)
+- **Initial Implementation**: 15 user stories = 82 AC = 225 tests (2.7 tests/AC coverage ratio)
+- **Restyle Implementation**: 12 user stories = 74 AC = 189 tests (2.6 tests/AC coverage ratio)
 - 525-line database migration indicates comprehensive schema design
 - 44 components is appropriate for this scope (not over-componentized)
 - Test structure with mocks/fixtures/utils indicates mature TDD approach
 - Zero lint errors after fixes shows code quality commitment
+- **CSS Restyle Pattern**: Pure CSS updates with no logic changes, comprehensive test coverage
+- **NICE.com Design System**: Be Vietnam Pro font, cyan accent (#23C9FF), dark primary (#22212B)
+- **Transition Standard**: 200ms ease-in-out (except inputs: 150ms for faster UX feedback)
+- **Badge Shape**: Changed from rounded-full to rounded-md per NICE design
+- **Card Shadow**: Custom shadow-card (0 2px 8px) and shadow-elevated (0 8px 24px)
+- **GPU-Accelerated Hovers**: Use -translate-y-0.5 instead of layout property changes
 
 ## Decision Criteria Used
 

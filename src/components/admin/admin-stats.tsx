@@ -43,25 +43,25 @@ export function AdminStats() {
       title: 'Pending Requests',
       value: stats.pendingRequests,
       icon: Clock,
-      color: 'text-yellow-600',
+      color: 'text-amber-500',
     },
     {
       title: 'Total Endpoints',
       value: stats.totalEndpoints,
       icon: Globe,
-      color: 'text-blue-600',
+      color: 'text-[#5192F4]',
     },
     {
       title: 'Active Endpoints',
       value: stats.activeEndpoints,
       icon: CheckCircle,
-      color: 'text-green-600',
+      color: 'text-emerald-500',
     },
     {
       title: 'Total Users',
       value: stats.totalUsers,
       icon: Users,
-      color: 'text-purple-600',
+      color: 'text-[#872BFF]',
     },
   ]
 
@@ -76,7 +76,7 @@ export function AdminStats() {
             <item.icon className={`h-4 w-4 ${item.color}`} />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{item.value}</div>
+            <div className="text-3xl font-bold">{item.value}</div>
           </CardContent>
         </Card>
       ))}

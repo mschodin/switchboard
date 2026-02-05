@@ -30,7 +30,7 @@ export function TagList() {
             key={tag.id}
             variant="ghost"
             className={cn(
-              'w-full justify-start font-normal',
+              'w-full justify-start font-normal hover:bg-accent/50',
               isSelected && 'bg-secondary'
             )}
             onClick={() => toggleTag(tag.slug)}

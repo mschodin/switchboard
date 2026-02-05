@@ -10,15 +10,15 @@ interface StatusBadgeProps {
 const statusConfig = {
   active: {
     label: 'Active',
-    className: 'bg-green-100 text-green-800 border-green-300',
+    className: 'bg-green-50 text-green-800 border-green-200',
   },
   inactive: {
     label: 'Inactive',
-    className: 'bg-yellow-100 text-yellow-800 border-yellow-300',
+    className: 'bg-yellow-50 text-yellow-800 border-yellow-200',
   },
   deprecated: {
     label: 'Deprecated',
-    className: 'bg-red-100 text-red-800 border-red-300',
+    className: 'bg-red-50 text-red-800 border-red-200',
   },
 }
 

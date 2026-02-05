@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export default function RegisterPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-muted/50 p-4">
+    <div className="flex min-h-screen items-center justify-center bg-muted p-4">
       <Card className="w-full max-w-md">
         <CardHeader>
           <CardTitle>Create Account</CardTitle>
@@ -18,7 +18,7 @@ export default function RegisterPage() {
             Already have an account?{' '}
             <Link
               href="/login"
-              className="font-medium text-brand-500 hover:underline"
+              className="font-medium text-[#23C9FF] hover:underline transition-colors duration-200"
             >
               Log in
             </Link>

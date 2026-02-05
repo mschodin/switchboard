@@ -14,7 +14,7 @@ export function ChatMessage({ message }: ChatMessageProps) {
       <div
         className={cn(
           'flex h-8 w-8 shrink-0 items-center justify-center rounded-full',
-          isUser ? 'bg-brand-500 text-white' : 'bg-muted'
+          isUser ? 'bg-primary text-primary-foreground' : 'bg-muted'
         )}
       >
         {isUser ? <User className="h-4 w-4" /> : <Bot className="h-4 w-4" />}
@@ -22,16 +22,16 @@ export function ChatMessage({ message }: ChatMessageProps) {
 
       <div
         className={cn(
-          'flex-1 space-y-1 rounded-lg px-3 py-2',
+          'flex-1 space-y-1 rounded-xl px-3 py-2',
           isUser
-            ? 'bg-brand-500 text-white'
-            : 'bg-muted'
+            ? 'bg-primary text-primary-foreground'
+            : 'bg-muted text-foreground'
         )}
       >
         <p className="text-sm whitespace-pre-wrap">{message.content}</p>
         <p className={cn(
           'text-xs',
-          isUser ? 'text-brand-100' : 'text-muted-foreground'
+          isUser ? 'text-primary-foreground/70' : 'text-muted-foreground'
         )}>
           {message.timestamp.toLocaleTimeString([], {
             hour: '2-digit',

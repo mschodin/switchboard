@@ -46,6 +46,14 @@
 - **Average 2-3 tests per AC:** Some require more, simpler ones need fewer
 - **Priority matters:** H/M/L helps focus test execution order
 
+### 8. CSS-Only Restyle Testing
+- **Challenge:** Testing pure CSS/styling changes without examining source code
+- **Solution:** Test expected class names, CSS variable values, and computed styles
+- **Pattern:** Use mock components that mirror LLD specifications exactly
+- **DOM Setup:** CSS variable tests need `beforeEach` blocks to inject styles
+- **Class Assertions:** Test class presence (`toContain('bg-primary')`), trust Tailwind
+- **Accessibility Must-Haves:** Contrast ratios, focus rings, `prefers-reduced-motion`
+
 ## Common Pitfalls Avoided
 
 ### 1. Over-Mocking
@@ -132,29 +140,43 @@ export const mockEndpoints = [
 
 ## Metrics
 
-### Test Suite Size
+### Test Suite Size (Original Switchboard Project)
 - **Total tests:** 225
 - **Unit tests:** 142 (63%)
 - **Integration tests:** 12 (5%)
 - **E2E tests:** 62 (28%)
 - **Database tests:** 9 (4%)
 
+### Test Suite Size (Restyle Project - SWB-100 to SWB-111)
+- **Total tests:** 189
+- **Test files:** 9
+- **Lines of code:** ~2600
+- **Coverage:** 100% of acceptance criteria (74 ACs)
+
 ### Coverage by Story
-- Average 13.2 tests per user story
-- Range: 6 tests (simple stories) to 22 tests (complex forms)
+- Original project: Average 13.2 tests per user story
+- Restyle project: Average 15.8 tests per story (189 tests / 12 stories)
+- Range: 6 tests (simple stories) to 25 tests (complex form input restyle)
 
 ### Test Complexity
-- Simple tests: 30% (single assertion, no setup)
-- Medium tests: 50% (multiple steps, some mocking)
-- Complex tests: 20% (multi-component, async, timing-dependent)
+- Simple tests: 40% (single class assertion, no setup)
+- Medium tests: 50% (multiple steps, state verification)
+- Complex tests: 10% (DOM setup, computed styles, CSS variables)
 
 ## Tools & Utilities Created
 
+### Original Switchboard Project
 1. **createMockSupabaseClient()** - Comprehensive Supabase mock
 2. **renderWithProviders()** - Custom render with auth context
 3. **createMockFile()** - File upload testing
 4. **mockMatchMedia()** - Responsive testing
 5. **builders object** - Test data builders (endpoint, tag, request)
+
+### Restyle Project
+1. **Mock Component Builders** - Inline mock components matching LLD specs
+2. **CSS Variable Injectors** - `beforeEach` DOM setup for testing CSS vars
+3. **Contrast Ratio Validators** - WCAG AA/AAA compliance checks
+4. **Transition Verifiers** - Test duration, timing, GPU-accelerated properties
 
 ## Future Considerations
 
@@ -172,11 +194,24 @@ export const mockEndpoints = [
 
 ## Links to Key Files
 
+### Original Switchboard Project
 - **Coverage Matrix:** `__tests__/TEST-COVERAGE-MATRIX.md`
 - **Test README:** `__tests__/README.md`
 - **Supabase Mocks:** `__tests__/mocks/supabase.ts`
 - **Test Fixtures:** `__tests__/fixtures/endpoints.ts`
 - **Test Utils:** `__tests__/utils/test-utils.tsx`
+
+### Restyle Project (SWB-100 to SWB-111)
+- **Coverage Matrix:** `__tests__/unit/restyle/TEST-COVERAGE-MATRIX.md`
+- **Design Tokens:** `__tests__/unit/restyle/design-tokens.test.ts`
+- **Typography:** `__tests__/unit/restyle/typography.test.ts`
+- **Button:** `__tests__/unit/restyle/button-restyle.test.tsx`
+- **Card:** `__tests__/unit/restyle/card-restyle.test.tsx`
+- **Badge:** `__tests__/unit/restyle/badge-restyle.test.tsx`
+- **Input:** `__tests__/unit/restyle/input-restyle.test.tsx`
+- **Header:** `__tests__/unit/restyle/header-restyle.test.tsx`
+- **Sidebar:** `__tests__/unit/restyle/sidebar-restyle.test.tsx`
+- **Transitions:** `__tests__/unit/restyle/transitions.test.tsx`
 
 ## Success Criteria Met
 

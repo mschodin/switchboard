@@ -11,7 +11,7 @@ export function RightSidebar({ className }: RightSidebarProps) {
   return (
     <aside
       className={cn(
-        'hidden lg:flex lg:w-sidebar-right lg:flex-shrink-0 flex-col border-l bg-card',
+        'hidden lg:flex lg:w-sidebar-right lg:flex-shrink-0 flex-col border-l border-black/[0.08] bg-white',
         className
       )}
     >
