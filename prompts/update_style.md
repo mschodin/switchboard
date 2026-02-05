@@ -1,0 +1,1 @@
+Update the style of the application. The UI/UX should match nice.com as closely as possible. The site layout does not need to change, however the colors, font, button styles, header styles, shadows, border radiuses, hover effects, etc should all match nice.com. Review switchboard's UI and update it to match the style of nice.com. 
